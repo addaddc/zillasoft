@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zillasoft — Custom Full-Stack IT Solutions</title>
+  <meta name="description" content="Zillasoft (zillasoft.com) delivers custom full-stack IT solutions. Oracle Certified Enterprise Architect, Oracle Certified Professional, Computer Science Master — database and Java full-stack expertise." />
+  <meta name="theme-color" content="#071018" />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+/* Zillasoft — Precision Teal / Ink */
+:root {
+  --ink: #071018;
+  --ink-2: #0d1a24;
+  --ink-3: #142533;
+  --fog: #d7e2ea;
+  --mist: #9fb3c3;
+  --paper: #eef4f7;
+  --teal: #2ec4b6;
+  --teal-bright: #3dd6c6;
+  --amber: #e8a317;
+  --line: rgba(61, 214, 198, 0.18);
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --max: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--paper);
+  background: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--teal);
+  color: var(--ink);
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(7, 16, 24, 0.72);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: rgba(215, 226, 234, 0.08);
+  background: rgba(7, 16, 24, 0.88);
+}
+
+.header-inner {
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+  min-height: 4.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.15rem;
+}
+
+.logo-mark {
+  width: 0.85rem;
+  height: 0.85rem;
+  background: linear-gradient(135deg, var(--teal-bright), var(--amber));
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--mist);
+}
+
+.nav a:hover {
+  color: var(--paper);
+}
+
+.nav-cta {
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(61, 214, 198, 0.45);
+  color: var(--teal-bright) !important;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.nav-cta:hover {
+  background: rgba(61, 214, 198, 0.12);
+  border-color: var(--teal-bright);
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(215, 226, 234, 0.16);
+  overflow: hidden;
+}
+
+.lang-btn {
+  min-width: 2.4rem;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mist);
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.lang-btn:hover {
+  color: var(--paper);
+}
+
+.lang-btn.is-active {
+  background: rgba(61, 214, 198, 0.16);
+  color: var(--teal-bright);
+}
+
+.menu-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-content: center;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 1.35rem;
+  height: 2px;
+  background: var(--paper);
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.mobile-nav {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem 1.25rem 1.25rem;
+  border-top: 1px solid rgba(215, 226, 234, 0.08);
+  background: rgba(7, 16, 24, 0.96);
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+.mobile-nav a {
+  padding: 0.85rem 0.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(215, 226, 234, 0.06);
+}
+
+@media (min-width: 860px) {
+  .nav {
+    display: flex;
+  }
+
+  .menu-toggle,
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 55% at 70% 20%, rgba(46, 196, 182, 0.18), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 15% 85%, rgba(232, 163, 23, 0.12), transparent 50%),
+    linear-gradient(165deg, #071018 0%, #0b1c28 42%, #09141d 100%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(215, 226, 234, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 226, 234, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 60% at 65% 35%, #000 20%, transparent 75%);
+  animation: gridDrift 28s linear infinite;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.55;
+  animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+.hero-orb--a {
+  width: min(42vw, 420px);
+  height: min(42vw, 420px);
+  top: 8%;
+  right: 8%;
+  background: rgba(46, 196, 182, 0.35);
+}
+
+.hero-orb--b {
+  width: min(28vw, 280px);
+  height: min(28vw, 280px);
+  bottom: 18%;
+  left: 10%;
+  background: rgba(232, 163, 23, 0.22);
+  animation-delay: -4s;
+}
+
+.hero-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(61, 214, 198, 0.04) 48%,
+    transparent 52%,
+    transparent 100%
+  );
+  background-size: 100% 220%;
+  animation: scanMove 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-architecture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+
+.arch-lines path {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawLine 2.8s var(--ease) forwards;
+}
+
+.arch-lines path:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.arch-lines path:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+.arch-nodes circle {
+  opacity: 0;
+  animation: nodeIn 0.6s var(--ease) forwards;
+}
+
+.arch-nodes circle:nth-child(1) { animation-delay: 1.1s; }
+.arch-nodes circle:nth-child(2) { animation-delay: 1.25s; }
+.arch-nodes circle:nth-child(3) { animation-delay: 1.4s; }
+.arch-nodes circle:nth-child(4) { animation-delay: 1.55s; }
+.arch-nodes circle:nth-child(5) { animation-delay: 1.7s; }
+.arch-nodes circle:nth-child(6) { animation-delay: 1.85s; }
+.arch-nodes circle:nth-child(7) { animation-delay: 2s; }
+.arch-nodes circle:nth-child(8) { animation-delay: 2.15s; }
+
+.hero-content {
+  width: min(100% - 2.5rem, var(--max));
+  margin: 0 auto;
+  padding: 7.5rem 0 5.5rem;
+}
+
+.brand-hero {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 11vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  background: linear-gradient(120deg, #f4fafc 20%, var(--teal-bright) 72%, var(--amber) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 18em;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.hero-lead {
+  margin: 1.15rem 0 0;
+  max-width: 36rem;
+  color: var(--fog);
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--teal-bright);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: #62e4d5;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(215, 226, 234, 0.28);
+  color: var(--paper);
+}
+
+.btn-ghost:hover {
+  border-color: var(--teal-bright);
+  color: var(--teal-bright);
+}
+
+.section {
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+}
+
+.section-inner {
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+}
+
+.section-head {
+  max-width: 38rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--teal-bright);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.section-head h2,
+.contact-copy h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.section-desc {
+  margin: 1rem 0 0;
+  color: var(--mist);
+  font-size: 1.05rem;
+}
+
+.services {
+  background:
+    linear-gradient(180deg, rgba(20, 37, 51, 0.35), transparent 28%),
+    var(--ink);
+  border-top: 1px solid rgba(215, 226, 234, 0.06);
+}
+
+.service-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem 1.75rem;
+  padding: 1.7rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
+}
+
+.service-row:hover {
+  background: linear-gradient(90deg, rgba(46, 196, 182, 0.06), transparent 55%);
+  padding-left: 0.5rem;
+}
+
+.service-index {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber);
+  padding-top: 0.35rem;
+}
+
+.service-body h3 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  letter-spacing: -0.015em;
+}
+
+.service-body p {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--mist);
+}
+
+@media (min-width: 720px) {
+  .service-row {
+    grid-template-columns: 4.5rem 1fr;
+    align-items: start;
+  }
+}
+
+.expertise {
+  background:
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(46, 196, 182, 0.1), transparent 55%),
+    var(--ink-2);
+}
+
+.skill-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: rgba(215, 226, 234, 0.08);
+  border: 1px solid rgba(215, 226, 234, 0.08);
+}
+
+.skill-rail li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.4rem 1.35rem;
+  background: var(--ink-2);
+}
+
+.skill-rail strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.skill-rail span {
+  color: var(--mist);
+  font-size: 0.98rem;
+}
+
+@media (min-width: 800px) {
+  .skill-rail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.credentials {
+  border-top: 1px solid rgba(215, 226, 234, 0.06);
+}
+
+.cred-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.cred-list li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(215, 226, 234, 0.1);
+}
+
+.cred-label {
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cred-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 760px) {
+  .cred-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cred-list li {
+    border-bottom: 0;
+    border-left: 2px solid rgba(46, 196, 182, 0.45);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+  }
+}
+
+.contact {
+  padding-bottom: clamp(5rem, 12vw, 8rem);
+}
+
+.contact-panel {
+  display: grid;
+  gap: 2.5rem;
+  padding: clamp(2rem, 5vw, 3.25rem);
+  background:
+    linear-gradient(145deg, rgba(46, 196, 182, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--ink-3), #0a171f);
+  border: 1px solid rgba(61, 214, 198, 0.22);
+}
+
+.contact-actions {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.contact-link {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(215, 226, 234, 0.12);
+  background: rgba(7, 16, 24, 0.35);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.contact-link:hover {
+  border-color: var(--teal-bright);
+  background: rgba(46, 196, 182, 0.08);
+  transform: translateY(-2px);
+}
+
+.contact-link-label {
+  color: var(--mist);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-link-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--teal-bright);
+}
+
+.contact-address-value {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+@media (min-width: 860px) {
+  .contact-panel {
+    grid-template-columns: 1.2fr 0.9fr;
+    align-items: end;
+  }
+}
+
+.site-footer {
+  border-top: 1px solid rgba(215, 226, 234, 0.08);
+  padding: 1.75rem 0 2.25rem;
+}
+
+.footer-inner {
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer-brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.footer-meta {
+  margin: 0;
+  color: var(--mist);
+  font-size: 0.9rem;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-delay="1"] { transition-delay: 0.1s; }
+[data-delay="2"] { transition-delay: 0.2s; }
+[data-delay="3"] { transition-delay: 0.3s; }
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 72px 72px, 72px 72px; }
+}
+
+@keyframes orbFloat {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(18px, -24px, 0) scale(1.08); }
+}
+
+@keyframes scanMove {
+  0%, 100% { background-position: 0 -40%; }
+  50% { background-position: 0 140%; }
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes nodeIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .arch-lines path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .arch-nodes circle {
+    opacity: 1;
+  }
+}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+  <header class="site-header" data-reveal>
+    <div class="header-inner">
+      <a class="logo" href="#top" data-i18n-aria="logoAria" aria-label="Zillasoft home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Zillasoft</span>
+      </a>
+      <div class="header-right">
+        <nav class="nav" data-i18n-aria="navAria" aria-label="Primary">
+          <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+          <a href="#credentials" data-i18n="nav.credentials">Credentials</a>
+          <a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-i18n-aria="menuOpen" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" hidden>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#credentials" data-i18n="nav.credentials">Credentials</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-brand">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-orb hero-orb--a"></div>
+        <div class="hero-orb hero-orb--b"></div>
+        <div class="hero-scan"></div>
+        <svg class="hero-architecture" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3dd6c6" stop-opacity="0.15" />
+              <stop offset="50%" stop-color="#3dd6c6" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#f0b429" stop-opacity="0.35" />
+            </linearGradient>
+          </defs>
+          <g class="arch-lines" fill="none" stroke="url(#lineGrad)" stroke-width="1.2">
+            <path d="M80 620 L280 420 L520 520 L760 220 L980 340 L1120 180" />
+            <path d="M160 700 L360 480 L600 580 L840 280 L1040 400" />
+            <path d="M40 400 L240 280 L460 360 L700 120 L920 240 L1100 80" />
+          </g>
+          <g class="arch-nodes" fill="#3dd6c6">
+            <circle cx="280" cy="420" r="4" /><circle cx="520" cy="520" r="4" />
+            <circle cx="760" cy="220" r="5" /><circle cx="980" cy="340" r="4" />
+            <circle cx="360" cy="480" r="3.5" /><circle cx="840" cy="280" r="4" />
+            <circle cx="460" cy="360" r="3.5" /><circle cx="700" cy="120" r="4" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <p id="hero-brand" class="brand-hero" data-reveal>Zillasoft</p>
+        <h1 class="hero-title" data-reveal data-delay="1" data-i18n="hero.title">Custom full-stack IT solutions for your business</h1>
+        <p class="hero-lead" data-reveal data-delay="2" data-i18n="hero.lead">
+          Centered on Java full-stack and databases, we deliver practical, evolvable enterprise systems and custom development.
+        </p>
+        <div class="hero-actions" data-reveal data-delay="3">
+          <a class="btn btn-primary" href="#contact" data-i18n="hero.ctaPrimary">Start a project</a>
+          <a class="btn btn-ghost" href="#services" data-i18n="hero.ctaSecondary">Explore services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section services" aria-labelledby="services-title">
+      <div class="section-inner">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="services.eyebrow">What we do</p>
+          <h2 id="services-title" data-i18n="services.title">Full-stack solutions, built to fit</h2>
+          <p class="section-desc" data-i18n="services.desc">
+            From architecture to launch, we deliver end-to-end implementations around real business needs—not one-size-fits-all templates.
+          </p>
+        </header>
+
+        <div class="service-list">
+          <article class="service-row" data-reveal>
+            <span class="service-index">01</span>
+            <div class="service-body">
+              <h3 data-i18n="services.s1.title">Enterprise Java full-stack development</h3>
+              <p data-i18n="services.s1.desc">Backend services, APIs, business logic, and front-end interaction designed as one system—stable and maintainable.</p>
+            </div>
+          </article>
+          <article class="service-row" data-reveal data-delay="1">
+            <span class="service-index">02</span>
+            <div class="service-body">
+              <h3 data-i18n="services.s2.title">Database architecture &amp; optimization</h3>
+              <p data-i18n="services.s2.desc">Modeling, performance tuning, migration, and high availability—so your data layer supports growth with confidence.</p>
+            </div>
+          </article>
+          <article class="service-row" data-reveal data-delay="2">
+            <span class="service-index">03</span>
+            <div class="service-body">
+              <h3 data-i18n="services.s3.title">Custom systems &amp; integration</h3>
+              <p data-i18n="services.s3.desc">Tailored to your processes, integrated with existing systems and third-party services to reduce rework and speed delivery.</p>
+            </div>
+          </article>
+          <article class="service-row" data-reveal data-delay="3">
+            <span class="service-index">04</span>
+            <div class="service-body">
+              <h3 data-i18n="services.s4.title">Technical consulting</h3>
+              <p data-i18n="services.s4.desc">Technology selection, architecture reviews, and refactor roadmaps—so teams make the right calls at critical moments.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="section expertise" aria-labelledby="expertise-title">
+      <div class="section-inner expertise-grid">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="expertise.eyebrow">Core strengths</p>
+          <h2 id="expertise-title" data-i18n="expertise.title">Deep in databases and Java full-stack</h2>
+          <p class="section-desc" data-i18n="expertise.desc">
+            Built for complex operations and long-term ownership—scalable, observable, and easy to hand over.
+          </p>
+        </header>
+
+        <ul class="skill-rail" data-reveal data-delay="1">
+          <li>
+            <strong data-i18n="expertise.k1.title">Java full-stack</strong>
+            <span data-i18n="expertise.k1.desc">Spring ecosystem · service design · front/back collaboration</span>
+          </li>
+          <li>
+            <strong data-i18n="expertise.k2.title">Databases</strong>
+            <span data-i18n="expertise.k2.desc">Oracle / relational design · SQL tuning · data governance</span>
+          </li>
+          <li>
+            <strong data-i18n="expertise.k3.title">System architecture</strong>
+            <span data-i18n="expertise.k3.desc">Modular design · integration APIs · security &amp; access control</span>
+          </li>
+          <li>
+            <strong data-i18n="expertise.k4.title">Delivery</strong>
+            <span data-i18n="expertise.k4.desc">Requirements clarity · iterative delivery · docs &amp; handover</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="credentials" class="section credentials" aria-labelledby="credentials-title">
+      <div class="section-inner">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="credentials.eyebrow">Credentials</p>
+          <h2 id="credentials-title" data-i18n="credentials.title">Certifications &amp; academic background</h2>
+          <p class="section-desc" data-i18n="credentials.desc">Verified expertise that supports enterprise design and delivery.</p>
+        </header>
+
+        <ul class="cred-list" data-reveal>
+          <li>
+            <span class="cred-label">Oracle</span>
+            <span class="cred-name">Oracle Certified Enterprise Architect</span>
+          </li>
+          <li>
+            <span class="cred-label">Oracle</span>
+            <span class="cred-name">Oracle Certified Professional</span>
+          </li>
+          <li>
+            <span class="cred-label" data-i18n="credentials.academic">Academic</span>
+            <span class="cred-name">Computer Science Master</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="section-inner contact-panel" data-reveal>
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
+          <h2 id="contact-title" data-i18n="contact.title">Tell us your business challenge</h2>
+          <p class="section-desc" data-i18n="contact.desc">
+            Whether you need a new system, a legacy modernization, or database and architecture optimization—Zillasoft delivers custom full-stack IT solutions.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="contact-link" href="mailto:support@zillasoft.com">
+            <span class="contact-link-label" data-i18n="contact.email">Email</span>
+            <span class="contact-link-value">support@zillasoft.com</span>
+          </a>
+          <a class="contact-link" href="https://zillasoft.com" rel="noopener">
+            <span class="contact-link-label" data-i18n="contact.website">Website</span>
+            <span class="contact-link-value">zillasoft.com</span>
+          </a>
+          <div class="contact-link">
+            <span class="contact-link-label" data-i18n="contact.address">Address</span>
+            <span class="contact-link-value contact-address-value">
+              2967 Dundas St. W. #1259<br />
+              Toronto, ON M6P 1Z2
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Zillasoft</p>
+      <p class="footer-meta">© 2013-2026 Zillasoft · zillasoft.com · <span data-i18n="footer.tagline">Custom Full Stack IT solutions</span></p>
+    </div>
+  </footer>
+
+  <script>
+(() => {
+  const STORAGE_KEY = "zillasoft-lang";
+
+  const messages = {
+    en: {
+      lang: "en",
+      title: "Zillasoft — Custom Full-Stack IT Solutions",
+      description:
+        "Zillasoft (zillasoft.com) delivers custom full-stack IT solutions. Oracle Certified Enterprise Architect, Oracle Certified Professional, Computer Science Master — database and Java full-stack expertise.",
+      skip: "Skip to main content",
+      logoAria: "Zillasoft home",
+      navAria: "Primary",
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
+      "nav.services": "Services",
+      "nav.expertise": "Expertise",
+      "nav.credentials": "Credentials",
+      "nav.contact": "Contact",
+      "hero.title": "Custom full-stack IT solutions for your business",
+      "hero.lead":
+        "Centered on Java full-stack and databases, we deliver practical, evolvable enterprise systems and custom development.",
+      "hero.ctaPrimary": "Start a project",
+      "hero.ctaSecondary": "Explore services",
+      "services.eyebrow": "What we do",
+      "services.title": "Full-stack solutions, built to fit",
+      "services.desc":
+        "From architecture to launch, we deliver end-to-end implementations around real business needs—not one-size-fits-all templates.",
+      "services.s1.title": "Enterprise Java full-stack development",
+      "services.s1.desc":
+        "Backend services, APIs, business logic, and front-end interaction designed as one system—stable and maintainable.",
+      "services.s2.title": "Database architecture & optimization",
+      "services.s2.desc":
+        "Modeling, performance tuning, migration, and high availability—so your data layer supports growth with confidence.",
+      "services.s3.title": "Custom systems & integration",
+      "services.s3.desc":
+        "Tailored to your processes, integrated with existing systems and third-party services to reduce rework and speed delivery.",
+      "services.s4.title": "Technical consulting",
+      "services.s4.desc":
+        "Technology selection, architecture reviews, and refactor roadmaps—so teams make the right calls at critical moments.",
+      "expertise.eyebrow": "Core strengths",
+      "expertise.title": "Deep in databases and Java full-stack",
+      "expertise.desc":
+        "Built for complex operations and long-term ownership—scalable, observable, and easy to hand over.",
+      "expertise.k1.title": "Java full-stack",
+      "expertise.k1.desc": "Spring ecosystem · service design · front/back collaboration",
+      "expertise.k2.title": "Databases",
+      "expertise.k2.desc": "Oracle / relational design · SQL tuning · data governance",
+      "expertise.k3.title": "System architecture",
+      "expertise.k3.desc": "Modular design · integration APIs · security & access control",
+      "expertise.k4.title": "Delivery",
+      "expertise.k4.desc": "Requirements clarity · iterative delivery · docs & handover",
+      "credentials.eyebrow": "Credentials",
+      "credentials.title": "Certifications & academic background",
+      "credentials.desc": "Verified expertise that supports enterprise design and delivery.",
+      "credentials.academic": "Academic",
+      "contact.eyebrow": "Get in touch",
+      "contact.title": "Tell us your business challenge",
+      "contact.desc":
+        "Whether you need a new system, a legacy modernization, or database and architecture optimization—Zillasoft delivers custom full-stack IT solutions.",
+      "contact.email": "Email",
+      "contact.website": "Website",
+      "contact.address": "Address",
+      "footer.tagline": "Custom Full Stack IT solutions",
+    },
+    zh: {
+      lang: "zh-CN",
+      title: "Zillasoft — 定制全栈 IT 技术方案",
+      description:
+        "Zillasoft（zillasoft.com）提供定制化全栈 IT 技术方案。Oracle Certified Enterprise Architect、Oracle Certified Professional、Computer Science Master，深耕数据库与 Java 全栈。",
+      skip: "跳到主要内容",
+      logoAria: "Zillasoft 首页",
+      navAria: "主导航",
+      menuOpen: "打开菜单",
+      menuClose: "关闭菜单",
+      "nav.services": "业务",
+      "nav.expertise": "能力",
+      "nav.credentials": "资质",
+      "nav.contact": "联系我们",
+      "hero.title": "为业务定制的全栈 IT 技术方案",
+      "hero.lead":
+        "以 Java 全栈与数据库为核心，交付可落地、可演进的企业级系统与定制开发。",
+      "hero.ctaPrimary": "开始合作",
+      "hero.ctaSecondary": "了解业务",
+      "services.eyebrow": "业务范围",
+      "services.title": "全栈方案，按需定制",
+      "services.desc":
+        "从架构设计到交付上线，围绕真实业务场景提供端到端的技术实现，而不是套用模板。",
+      "services.s1.title": "企业级 Java 全栈开发",
+      "services.s1.desc":
+        "后端服务、API、业务逻辑与前端交互一体设计，构建稳定可维护的业务系统。",
+      "services.s2.title": "数据库架构与优化",
+      "services.s2.desc":
+        "建模、性能调优、数据迁移与高可用设计，让数据层成为业务增长的可靠底座。",
+      "services.s3.title": "定制系统与集成",
+      "services.s3.desc":
+        "按组织流程定制开发，对接现有系统与第三方服务，减少改造成本、加快上线。",
+      "services.s4.title": "技术方案咨询",
+      "services.s4.desc":
+        "技术选型、架构评审与重构路径规划，帮助团队在关键阶段做出正确决策。",
+      "expertise.eyebrow": "核心能力",
+      "expertise.title": "深耕数据库与 Java 全栈",
+      "expertise.desc":
+        "面向复杂业务与长期运维，强调可扩展、可观测、可交接的工程实践。",
+      "expertise.k1.title": "Java 全栈",
+      "expertise.k1.desc": "Spring 生态 · 服务设计 · 前后端协同",
+      "expertise.k2.title": "数据库",
+      "expertise.k2.desc": "Oracle / 关系型设计 · SQL 优化 · 数据治理",
+      "expertise.k3.title": "系统架构",
+      "expertise.k3.desc": "模块化设计 · 集成接口 · 安全与权限",
+      "expertise.k4.title": "交付方式",
+      "expertise.k4.desc": "需求澄清 · 迭代交付 · 文档与交接",
+      "credentials.eyebrow": "专业资质",
+      "credentials.title": "认证与学术背景",
+      "credentials.desc": "以可验证的专业能力，支撑企业级项目的设计与落地。",
+      "credentials.academic": "学术",
+      "contact.eyebrow": "开始合作",
+      "contact.title": "告诉我你的业务挑战",
+      "contact.desc":
+        "无论是新系统建设、遗留系统改造，还是数据库与架构优化，Zillasoft 提供定制化全栈 IT 技术方案。",
+      "contact.email": "邮箱",
+      "contact.website": "官网",
+      "contact.address": "地址",
+      "footer.tagline": "定制全栈 IT 技术方案",
+    },
+  };
+
+  let currentLang = "en";
+
+  const header = document.querySelector(".site-header");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  const metaDescription = document.querySelector('meta[name="description"]');
+
+  const getText = (key) => messages[currentLang]?.[key] ?? messages.en[key] ?? key;
+
+  const applyLanguage = (lang) => {
+    currentLang = messages[lang] ? lang : "en";
+    const dict = messages[currentLang];
+
+    document.documentElement.lang = dict.lang;
+    document.title = dict.title;
+    if (metaDescription) metaDescription.setAttribute("content", dict.description);
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+      el.textContent = getText(key);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria");
+      if (!key) return;
+      el.setAttribute("aria-label", getText(key));
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      const active = btn.getAttribute("data-lang") === currentLang;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+
+    if (menuToggle) {
+      const open = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-label", getText(open ? "menuClose" : "menuOpen"));
+    }
+
+    try {
+      localStorage.setItem(STORAGE_KEY, currentLang);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const onScroll = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener("click", () => {
+      const open = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!open));
+      menuToggle.setAttribute("aria-label", getText(open ? "menuOpen" : "menuClose"));
+      mobileNav.hidden = open;
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", getText("menuOpen"));
+        mobileNav.hidden = true;
+      });
+    });
+  }
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang");
+      if (lang) applyLanguage(lang);
+    });
+  });
+
+  let initialLang = "en";
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "en" || saved === "zh") initialLang = saved;
+  } catch {
+    /* ignore */
+  }
+  applyLanguage(initialLang);
+
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
+})();
+  </script>
+</body>
+</html>
