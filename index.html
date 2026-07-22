@@ -656,6 +656,43 @@ button {
   font-weight: 600;
 }
 
+.contact-qr {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 520px) {
+  .contact-qr {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.qr-card {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(215, 226, 234, 0.12);
+  background: rgba(7, 16, 24, 0.35);
+}
+
+.qr-card img {
+  width: min(100%, 168px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  padding: 0.45rem;
+}
+
+.qr-hint {
+  margin: 0;
+  color: var(--mist);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
 @media (min-width: 860px) {
   .contact-panel {
     grid-template-columns: 1.2fr 0.9fr;
@@ -952,6 +989,18 @@ button {
               Toronto, ON M6P 1Z2
             </span>
           </div>
+          <div class="contact-qr">
+            <figure class="qr-card">
+              <figcaption class="contact-link-label" data-i18n="contact.wechat">WeChat</figcaption>
+              <img src="wechat.png" width="168" height="168" alt="WeChat QR code" data-i18n-alt="contact.wechatAlt" />
+              <p class="qr-hint" data-i18n="contact.scanWechat">Scan to message on WeChat</p>
+            </figure>
+            <figure class="qr-card">
+              <figcaption class="contact-link-label" data-i18n="contact.whatsapp">WhatsApp</figcaption>
+              <img src="whatsapp.png" width="168" height="168" alt="WhatsApp QR code" data-i18n-alt="contact.whatsappAlt" />
+              <p class="qr-hint" data-i18n="contact.scanWhatsapp">Scan to message on WhatsApp</p>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -1027,6 +1076,12 @@ button {
       "contact.email": "Email",
       "contact.website": "Website",
       "contact.address": "Address",
+      "contact.wechat": "WeChat",
+      "contact.whatsapp": "WhatsApp",
+      "contact.scanWechat": "Scan to message on WeChat",
+      "contact.scanWhatsapp": "Scan to message on WhatsApp",
+      "contact.wechatAlt": "WeChat QR code",
+      "contact.whatsappAlt": "WhatsApp QR code",
       "footer.tagline": "Custom Full Stack IT solutions",
     },
     zh: {
@@ -1087,6 +1142,12 @@ button {
       "contact.email": "邮箱",
       "contact.website": "官网",
       "contact.address": "地址",
+      "contact.wechat": "微信",
+      "contact.whatsapp": "WhatsApp",
+      "contact.scanWechat": "扫码通过微信联系",
+      "contact.scanWhatsapp": "扫码通过 WhatsApp 联系",
+      "contact.wechatAlt": "微信二维码",
+      "contact.whatsappAlt": "WhatsApp 二维码",
       "footer.tagline": "定制全栈 IT 技术方案",
     },
   };
@@ -1118,6 +1179,12 @@ button {
       const key = el.getAttribute("data-i18n-aria");
       if (!key) return;
       el.setAttribute("aria-label", getText(key));
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-alt");
+      if (!key) return;
+      el.setAttribute("alt", getText(key));
     });
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
